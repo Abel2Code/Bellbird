@@ -1,0 +1,12 @@
+<div>
+  <h3> Create a new Alarm </h3>
+  <div>
+    Id:
+    <input [(ngModel)]="newAlarmId" />
+  </div>
+  <div>
+    Text:
+    <input [(ngModel)]="newAlarmText" (ngModelChange)="capitalizeNewAlarmText()"/>
+  </div>
+  <Button (click)="createAlarm()">Create </Button>
+</div>

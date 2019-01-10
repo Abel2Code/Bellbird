@@ -1,0 +1,5 @@
+<h1>Alarms</h1>
+<button (click)="loadAlarms()">Refresh</button>
+<ul>
+  <li *ngFor="let alarm of alarms; let i = index" [attr.data-index]="i"> {{alarm.id}} -- {{alarm.text}} -- <span (click)="sendVote(i)" [ngClass]="{'upvoteStatus': alarm.voteStatus}"> Votes: {{alarm.votes}}</span></li>
+</ul>

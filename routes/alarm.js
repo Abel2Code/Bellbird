@@ -40,7 +40,6 @@ router.post('/alarm', function(req, res) {
 
 router.post('/alarmVote', function(req, res) {
 	// If missing, is req.body.id Null or undefined
-	console.log('vote');
 	if(req.body.id == null) {
 		res.send({success: false})
 	} else {
@@ -51,7 +50,7 @@ router.post('/alarmVote', function(req, res) {
 				voteDelta = req.body.voteStatus ? 1 : -1;
 				alarm.votes += voteDelta;
 				alarm.save(function(err) {
-					res.send({success: err ? false : true});
+					res.send({success: err ? false : true, vote: alarm.votes});
 				})
 			}
 		});
